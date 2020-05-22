@@ -1,0 +1,27 @@
+version: '3.5'
+
+services:
+    app:
+        build: .
+        volumes:
+            - ./:/app
+        working_dir: /app
+
+    webserver:
+        image: nginx:latest
+        ports:
+            - 8000:80
+        volumes:
+            - ./nginx/conf.d/:/etc/nginx/conf.d/
+    
+    db:
+        image: mysql:5.7
+        environment:
+            - MYSQL_ROOT_PASSWORD=admin
+            - MYSQL_DATABASE=db
+        volumes:
+            - symfony-data:/var/lib/mysql
+
+volumes:
+    symfony-data:
+            

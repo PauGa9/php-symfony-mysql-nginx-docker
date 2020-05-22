@@ -1,0 +1,11 @@
+user_test:
+    path: /user/test
+    controller: App\Controller\UserController::test
+
+user_get:
+    path: /user/get
+    controller: App\Controller\UserController::getUsers
+
+user_create:
+    path: /user/create
+    controller: App\Controller\UserController::createUser
