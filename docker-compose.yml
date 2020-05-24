@@ -6,6 +6,9 @@ services:
         volumes:
             - ./:/app
         working_dir: /app
+        environment:
+            - XDEBUG_ENABLED=${XDEBUG_ENABLED:-0}
+        command: /app/start-container.sh
 
     webserver:
         image: nginx:latest
